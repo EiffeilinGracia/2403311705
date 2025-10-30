@@ -1,79 +1,54 @@
-<!DOCTYPE html>
+<<<<<<< HEAD
 <html>
-<head>
-  <title>Data Diri Eiffeilin</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #99d0d7;
-      padding: 20px;
-    }
+  <head>
+    <title>Memori</title>
+  </head>
+  <body>
+    <p id="tgl">Ini tanggal: </p>
+    <br>
+    <h1 id="title">title</h1>
+    <p class="content">content</p>
+    <p id="kalimatT"></p>
+    <p id="kataT"></p>
+    <button type="button" onclick="count()">Identifikasi Paragraf</button>
 
-    button {
-      background-color: #c16aa0;
-      color: white;
-      border: none;
-      padding: 8px 15px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
+    <script>
+      document.title = "Memori";
+      let tanggal = document.getElementById("tgl");
+      tanggal.innerHTML += new Date(Date.now()).toLocaleDateString();
 
-    button:hover {
-      background-color: #b5288b;
-    }
+      let web = {
+        title: "Memori",
+        data: "Memori adalah urutan byte yang berisi sepotong kecil informasi. Informasi ini mungkin menjadi perintah untuk mengatakan pada komputer apa yang harus dilakukan. Sel mungkin berisi data yang diperlukan komputer untuk melakukan suatu perintah. Setiap slot mungkin berisi salah satu, dan apa yang sekarang menjadi data mungkin saja kemudian menjadi perintah. Ukuran masing-masing sel, dan jumlah sel, berubah secara hebat dari komputer ke komputer, dan teknologi dalam pembuatan memori sudah berubah secara hebat - dari relay elektromekanik, ke tabung yang diisi dengan air raksa di mana pulsa akustik terbentuk, sampai matriks magnet permanen, ke setiap transistor, ke sirkuit terpadu dengan jutaan transistor di atas satu chip silikon."
+      };
 
-    h1 {
-      color: #333;
-    }
+      let judul = document.getElementById("title");
+      let konten = document.getElementsByClassName("content")[0];
 
-    .card {
-      background-color: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-      width: 400px;
-      margin-top: 20px;
-    }
+      judul.innerHTML = web.title;
+      konten.innerHTML = web.data;
 
-    .card p {
-      margin: 6px 0;
-      font-size: 15px;
-    }
+      let status = false;
 
-    .card b {
-      color: #333;
-    }
-  </style>
-</head>
-<body>
-  <button onclick="getData()">Load Data</button>
-  <h1>Data Diri Eiffeilin</h1>
-  <div id="data-container"></div>
+      function count() {
+        if (status === true) {
+          alert("Paragraf sudah diidentifikasi");
+          return;
+        }
 
-  <script>
-    function getData() {
-      fetch('data.json')
-        .then(response => response.json())
-        .then(data => {
-          const d = data[0];
-          const container = document.getElementById('data-container');
-          container.innerHTML = `
-            <div class="card">
-              <p><b>NIM:</b> ${d.NIM}</p>
-              <p><b>Nama:</b> ${d["Nama"]}</p>
-              <p><b>Tempat, Tanggal Lahir:</b> ${d["Tempat, Tanggal lahir"]}</p>
-              <p><b>Jenis Kelamin:</b> ${d["Jenis kelamin"]}</p>
-              <p><b>Kelas:</b> ${d["Kelas"]}</p>
-              <p><b>Jurusan:</b> ${d["Jurusan"]}</p>
-              <p><b>Angkatan:</b> ${d["Angkatan"]}</p>
-              <p><b>Prodi:</b> ${d["Prodi"]}</p>
-              <p><b>Nama Universitas:</b> ${d["Nama universitas"]}</p>
-              <p><b>Alamat:</b> ${d["Alamat"]}</p>
-            </div>
-          `;
-        })
-        .catch(error => console.error('Error fetching JSON:', error));
-    }
-  </script>
-</body>
+        let kalimatT = document.getElementById("kalimatT");
+        let kataT = document.getElementById("kataT");
+
+        let jumlahKalimat = web.data.split(".").length - 1;
+        let jumlahKata = web.data.split(" ").length;
+
+        kalimatT.innerHTML = `Jumlah kalimat : ${jumlahKalimat}`;
+        kataT.innerHTML = `Jumlah kata : ${jumlahKata}`;
+        status = true;
+      }
+    </script>
+  </body>
 </html>
+=======
+
+>>>>>>> 67d8146e5199e28b78c0cd73e1406440f04de186
